@@ -49,8 +49,9 @@ const formattedforecastWeather=(data)=>{
     return{timezone,daily,hourly};
 }
 
-const getFormattedWeatherData=async (searchParams)=>{
-    const formattedCurrentWeather=await getFormattedWeatherData('2.5/weather',searchParams).then(formatCurrentWeather)
+const getFormattedWeatherData=async (searchParams)=>
+{
+    const formattedCurrentWeather=await getWeatherData('2.5/weather',searchParams).then(formatCurrentWeather)
     const {lat,lon} = formatCurrentWeather
 
     const formattedforecastWeather=await getWeatherData('3.0/onecall', {lat,lon,exclude:'current,minutely,alerts', units: searchParams.units}).then(formattedforecastWeather);
