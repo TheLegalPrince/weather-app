@@ -10,14 +10,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [query,setQuery]=useState({q:'delhi'})
+  const [query,setQuery]=useState({q:'Delhi'})
   const [units,setUnits]=useState('metric')
   const [weather, setWeather]=useState(null)
 
   useEffect(() => {
     const fetchWeather = async () => {
       const message = query.q ? query.q : 'Current location';
-      toast.info('Fetching weather for '+message);
+      toast.info('Fetching weather for - '+message);
 
       await getFormattedWeatherData({...query, units}).then(data=>{
         toast.success(`Successfully fetched weather for ${data.name}, ${data.country}`);
